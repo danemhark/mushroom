@@ -42,4 +42,4 @@ def heart_failure_prediction():
     return jsonify({'prediction': response})
 
 if __name__ == '__main__':
-    api.run(port=8000)
+    api.run(host='0.0.0.0', debug=True)
