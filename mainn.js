@@ -33,7 +33,7 @@ document.getElementById('mushroomForm').addEventListener('submit', function(e) {
     const requestData = {inputs: [formData]};
 
     // Make API call
-    fetch('https://mushroom-lkc3.onrender.com/api/mushroom', {
+    fetch('https://mushroom-prediction-628r.onrender.com/api/mushroom', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,8 +64,8 @@ document.getElementById('mushroomForm').addEventListener('submit', function(e) {
             edibleProb = Math.round(predictions['0'] * 100);
             poisonousProb = Math.round(predictions['1'] * 100);
         } else {
-            console.error('Unexpected prediction format:', predictions);
-            alert('Unexpected prediction data format.');
+            // console.error('Unexpected prediction format:', predictions);
+            // alert('Unexpected prediction data format.');
             return;
         }
     
@@ -79,7 +79,7 @@ document.getElementById('mushroomForm').addEventListener('submit', function(e) {
     })
     
     .catch((error) => {
-        console.error('Error:', error);
-        alert('Error making prediction: ' + error.message);
+        // console.error('Error:', error);
+        // alert('Error making prediction: ' + error.message);
     });
 });
