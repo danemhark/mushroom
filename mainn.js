@@ -33,7 +33,7 @@ document.getElementById('mushroomForm').addEventListener('submit', function(e) {
     const requestData = {inputs: [formData]};
 
     // Make API call
-    fetch('http://localhost:8000/api/mushroom', {
+    fetch('https://mushroom-lkc3.onrender.com/api/mushroom', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
