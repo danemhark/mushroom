@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edible or Poisonous</title>
+  <style>
+  body {
+  font-family: 'Roboto', sans-serif;
+  background: #0a0f2c; /* Dark Navy background */
+  margin: 0;
+  padding: 0;
+  color: #d1f7f2; /* Mint text */
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  background: #12193c; /* Slightly lighter dark navy */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 255, 200, 0.1); /* Mint glow effect */
+}
+
+h2 {
+  text-align: center;
+  color: #84f3e6; /* Bright mint */
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 15px;
+  color: #aeece7; /* Soft mint */
+}
+
+select,
+input[type="text"],
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #2dd4bf; /* Mint border */
+  box-sizing: border-box;
+  font-size: 15px;
+  background-color: #0e1433; /* Deep background */
+  color: #d1f7f2;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+select:focus,
+input[type="text"]:focus {
+  outline: none;
+  border-color: #5ef2dc;
+  background-color: #121c42;
+}
+
+button {
+  background-color: #2dd4bf; /* Vibrant mint */
+  color: #0a0f2c;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #3efce5;
+  transform: translateY(-1px);
+}
+
+.result {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #84f3e6;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Edible or Poisonous</h2>
+    <a href="index.php">BACK</a>
+    <form id="mushroomForm">
+      <label for="cap-shape">Cap Shape:</label>
+      <select name="cap-shape" id="cap_shape">
+        <option value="b">Bell</option>
+        <option value="c">Conical</option>
+        <option value="x">Convex</option>
+        <option value="f">Flat</option>
+        <option value="k">Knobbed</option>
+        <option value="s">Sunken</option>
+      </select>
+  
+      <label for="cap-surface">Cap Surface:</label>
+      <select name="cap-surface" id="cap-surface">
+        <option value="f">Fibrous</option>
+        <option value="g">Grooves</option>
+        <option value="y">Scaly</option>
+        <option value="s">Smooth</option>
+      </select>
+  
+      <label for="cap-color">Cap Color:</label>
+      <select name="cap-color" id="cap-color">
+        <option value="b">Brown</option>
+        <option value="f">Buff</option>
+        <option value="c">Cinnamon</option>
+        <option value="g">Gray</option>
+        <option value="n">Green</option>
+        <option value="p">Pink</option>
+        <option value="e">Purple</option>
+        <option value="r">Red</option>
+        <option value="w">White</option>
+        <option value="y">Yellow</option>
+      </select>
+  
+      <label for="bruises">Bruises:</label>
+      <select name="bruises" id="bruises">
+        <option value="t">True</option>
+        <option value="f">False</option>
+      </select>
+  
+      <label for="odor">Odor:</label>
+      <select name="odor" id="odor">
+        <option value="a">Almond</option>
+        <option value="e">Anise</option>
+        <option value="c">Creosote</option>
+        <option value="f">Foul</option>
+        <option value="m">Musty</option>
+        <option value="p">Pungent</option>
+        <option value="s">Spicy</option>
+        <option value="n">None</option>
+      </select>
+  
+      <label for="gill-attachment">Gill Attachment:</label>
+      <select name="gill-attachment" id="gill-attachment">
+        <option value="a">Attached</option>
+        <option value="d">Descending</option>
+        <option value="f">Free</option>
+        <option value="n">Notched</option>
+      </select>
+  
+      <label for="gill-spacing">Gill Spacing:</label>
+      <select name="gill-spacing" id="gill-spacing">
+        <option value="c">Close</option>
+        <option value="w">Crowded</option>
+        <option value="d">Distant</option>
+      </select>
+  
+      <label for="gill-size">Gill Size:</label>
+      <select name="gill-size" id="gill-size">
+        <option value="b">Broad</option>
+        <option value="n">Narrow</option>
+      </select>
+  
+      <label for="gill-color">Gill Color:</label>
+      <select name="gill-color" id="gill-color">
+        <option value="b">Brown</option>
+        <option value="f">Buff</option>
+        <option value="c">Cinnamon</option>
+        <option value="g">Gray</option>
+        <option value="n">Green</option>
+        <option value="p">Pink</option>
+        <option value="e">Purple</option>
+        <option value="r">Red</option>
+        <option value="w">White</option>
+        <option value="y">Yellow</option>
+      </select>
+  
+      <label for="stalk-shape">Stalk Shape:</label>
+      <select name="stalk-shape" id="stalk-shape">
+        <option value="e">Enlarging</option>
+        <option value="t">Tapering</option>
+      </select>
+  
+      <label for="stalk-root">Stalk Root:</label>
+      <select name="stalk-root" id="stalk-root">
+        <option value="b">Bulbous</option>
+        <option value="c">Club</option>
+        <option value="p">Cup</option>
+        <option value="e">Equal</option>
+        <option value="r">Rhizomorphs</option>
+        <option value="d">Rooted</option>
+        <option value="m">Missing</option>
+      </select>
+  
+      <label for="stalk-surface-above-ring">Stalk Surface Above Ring:</label>
+      <select name="stalk-surface-above-ring" id="stalk-surface-above-ring">
+        <option value="b">Fibrous</option>
+        <option value="c">Scaly</option>
+        <option value="p">Silky</option>
+        <option value="e">Smooth</option>
+      </select>
+  
+      <label for="stalk-surface-below-ring">Stalk Surface Below Ring:</label>
+      <select name="stalk-surface-below-ring" id="stalk-surface-below-ring">
+        <option value="b">Fibrous</option>
+        <option value="c">Scaly</option>
+        <option value="p">Silky</option>
+        <option value="e">Smooth</option>
+      </select>
+  
+      <label for="stalk-color-above-ring">Stalk Color Above Ring:</label>
+      <select name="stalk-color-above-ring" id="stalk-color-above-ring">
+        <option value="b">Brown</option>
+        <option value="c">Cinnamon</option>
+        <option value="p">Pink</option>
+        <option value="e">Red</option>
+      </select>
+  
+      <label for="stalk-color-below-ring">Stalk Color Below Ring:</label>
+      <select name="stalk-color-below-ring" id="stalk-color-below-ring">
+        <option value="b">Brown</option>
+        <option value="c">Cinnamon</option>
+        <option value="p">Pink</option>
+        <option value="e">Red</option>
+      </select>
+  
+      <label for="veil-type">Veil Type:</label>
+      <select name="veil-type" id="veil-type">
+        <option value="p">Partial</option>
+        <option value="u">Universal</option>
+      </select>
+  
+      <label for="veil-color">Veil Color:</label>
+      <select name="veil-color" id="veil-color">
+        <option value="b">Brown</option>
+        <option value="o">Orange</option>
+        <option value="w">White</option>
+        <option value="y">Yellow</option>
+      </select>
+  
+      <label for="ring-number">Ring Number:</label>
+      <select name="ring-number" id="ring-number">
+        <option value="n">None</option>
+        <option value="o">One</option>
+        <option value="t">Two</option>
+      </select>
+  
+      <label for="ring-type">Ring Type:</label>
+      <select name="ring-type" id="ring-type">
+        <option value="b">Cobwebby</option>
+        <option value="c">Evanescent</option>
+        <option value="p">Flaring</option>
+        <option value="e">Large</option>
+        <option value="r">Pendant</option>
+        <option value="d">Sheathing</option>
+        <option value="m">Zone</option>
+        <option value="n">None</option>
+      </select>
+  
+      <label for="spore-print-color">Spore Print Color:</label>
+      <select name="spore-print-color" id="spore-print-color">
+        <option value="b">Brown</option>
+        <option value="f">Buff</option>
+        <option value="c">Cinnamon</option>
+        <option value="g">Gray</option>
+        <option value="n">Green</option>
+        <option value="k">Black</option>
+        <option value="e">Purple</option>
+        <option value="o">Orange</option>
+        <option value="w">White</option>
+        <option value="y">Yellow</option>
+      </select>
+  
+      <label for="population">Population:</label>
+      <select name="population" id="population">
+        <option value="a">Abundant</option>
+        <option value="c">Clustered</option>
+        <option value="n">Numerous</option>
+        <option value="s">Scattered</option>
+        <option value="v">Several</option>
+        <option value="y">Solitary</option>
+      </select>
+      
+      <label for="habitat">Habitat:</label>
+<select name="habitat" id="habitat">
+  <option value="g">Grasses</option>
+  <option value="l">Leaves</option>
+  <option value="m">Meadows</option>
+  <option value="p">Paths</option>
+  <option value="u">Urban</option>
+  <option value="w">Waste</option>
+  <option value="d">Woods</option>
+</select>
+  
+      <button type="submit">Submit</button>
+    </form>
+  
+    <div id="resultContainer" style="display:none;">
+      <h3>Prediction Results:</h3>
+      <div>
+        Edible: <span id="edibleProb"></span>
+        <div style="background:#ddd; border-radius:5px; overflow:hidden;">
+          <div id="edibleBar" style="background:#4CAF50; height:20px; width:0;"></div>
+        </div>
+      </div>
+      <div>
+        Poisonous: <span id="poisonousProb"></span>
+        <div style="background:#ddd; border-radius:5px; overflow:hidden;">
+          <div id="poisonousBar" style="background:#f44336; height:20px; width:0;"></div>
+        </div>
+      </div>
+    </div>
+    
+  
+  <script>
+    document.getElementById('mushroomForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+    
+      // Get form values
+      const formData = {
+        "cap-shape": document.getElementById('cap_shape').value,
+        "cap-surface": document.getElementById('cap-surface').value,
+        "cap-color": document.getElementById('cap-color').value,
+        bruises: document.getElementById('bruises').value,
+        odor: document.getElementById('odor').value,
+        "gill-attachment": document.getElementById('gill-attachment').value,
+        "gill-spacing": document.getElementById('gill-spacing').value,
+        "gill-size": document.getElementById('gill-size').value,
+        "gill-color": document.getElementById('gill-color').value,
+        "stalk-shape": document.getElementById('stalk-shape').value,
+        "stalk-root": document.getElementById('stalk-root').value,
+        "stalk-surface-above-ring": document.getElementById('stalk-surface-above-ring').value,
+        "stalk-surface-below-ring": document.getElementById('stalk-surface-below-ring').value,
+        "stalk-color-above-ring": document.getElementById('stalk-color-above-ring').value,
+        "stalk-color-below-ring": document.getElementById('stalk-color-below-ring').value,
+        "veil-type": document.getElementById('veil-type').value,
+        "veil-color": document.getElementById('veil-color').value,
+        "ring-number": document.getElementById('ring-number').value,
+        "ring-type": document.getElementById('ring-type').value,
+        "spore-print-color": document.getElementById('spore-print-color').value,
+        population: document.getElementById('population').value,
+        habitat: document.getElementById('habitat').value,
+      };
+    
+      // Prepare data for API
+      const requestData = { inputs: [formData] };
+    
+      // Make API call
+      fetch('http://localhost:8000/api/mushroom', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data); // Log the response to inspect its structure
+    
+          // Show results
+          const resultContainer = document.getElementById('resultContainer');
+          resultContainer.style.display = 'block';
+    
+          // Parse prediction object
+          const predictions = data.prediction[0]; // Adjusted to match the API response
+          if (!predictions) {
+            alert('No prediction data received.');
+            return;
+          }
+    
+          let resultHTML = '<h3>Prediction Results:</h3><ul>';
+          for (const [key, value] of Object.entries(predictions)) {
+            resultHTML += `<li>${key.toUpperCase()}: ${value}%</li>`;
+          }
+          resultHTML += '</ul>';
+    
+          // Update the result container
+          resultContainer.innerHTML = resultHTML;
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Error making prediction: ' + error.message);
+        });
+    });
+</script>
+</body>
+</html>
